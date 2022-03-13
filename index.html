@@ -236,24 +236,27 @@
 
     $("#prevBtn").click(function () {
         $("#flipbook").turn("previous");
+        if(paginaAtual!=1){paginaAtual--;}
     });
 
     $("#nextBtn").click(function () {
         $("#flipbook").turn("next");
+        if(paginaAtual!=17){paginaAtual++;}
     });
 
     //Bubles
+    var paginaAtual = 1;
     $(document).ready(function(){
         setInterval(function() {
-            if(document.getElementById('flipbook').children[0].style.display != "none"){
+            if(paginaAtual==1){
                 document.getElementsByClassName("sticky")[0].style.opacity = "100"
             }
         }, 10000);
         setInterval(function() {
-            if(document.getElementById('flipbook').children[0].style.display == "none"){
-                document.getElementsByClassName("sticky")[0].style.opacity = "0";
+            if(paginaAtual!=1){
+                document.getElementsByClassName("sticky")[0].style.opacity = "0"
             }
-        }, 1000);
+        }, 100);
     });
 
 
