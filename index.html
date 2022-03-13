@@ -1,0 +1,272 @@
+<html>
+
+<head>
+    <title>Livro</title>
+    <script src="./jquery.min.js"></script>
+    <script src="./turn.min.js"></script>
+    <style>
+        body {
+            background-color: black;
+            overflow-x: hidden;
+        }
+
+        #flipbook div {
+            border-radius: 10px;
+        }
+
+        #flipbook {
+            background-image: url("./background.png");
+            background-color: black;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #prevBtn {
+            position: absolute;
+            top: 0;
+            color: transparent;
+            background-color: transparent;
+            height: 100%;
+            border-style: none;
+            width: 50%;
+            z-index: 10;
+        }
+
+        #nextBtn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: transparent;
+            color: transparent;
+            height: 100%;
+            border-style: none;
+            width: 50%;
+            z-index: 11;
+        }
+
+        .bubbles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            width: 40px;
+            height: 40px;
+            background: #173462;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: rise 10s infinite ease-in;
+        }
+
+        .bubble:nth-child(1) {
+            width: 40px;
+            height: 40px;
+            left: 10%;
+            animation-duration: 8s;
+        }
+
+        .bubble:nth-child(2) {
+            width: 20px;
+            height: 20px;
+            left: 20%;
+            animation-duration: 5s;
+            animation-delay: 1s;
+        }
+
+        .bubble:nth-child(3) {
+            width: 50px;
+            height: 50px;
+            left: 35%;
+            animation-duration: 7s;
+            animation-delay: 2s;
+        }
+
+        .bubble:nth-child(4) {
+            width: 80px;
+            height: 80px;
+            left: 50%;
+            animation-duration: 11s;
+            animation-delay: 0s;
+        }
+
+        .bubble:nth-child(5) {
+            width: 35px;
+            height: 35px;
+            left: 55%;
+            animation-duration: 6s;
+            animation-delay: 1s;
+        }
+
+        .bubble:nth-child(6) {
+            width: 45px;
+            height: 45px;
+            left: 65%;
+            animation-duration: 8s;
+            animation-delay: 3s;
+        }
+
+        .bubble:nth-child(7) {
+            width: 90px;
+            height: 90px;
+            left: 70%;
+            animation-duration: 12s;
+            animation-delay: 2s;
+        }
+
+        .bubble:nth-child(8) {
+            width: 25px;
+            height: 25px;
+            left: 80%;
+            animation-duration: 6s;
+            animation-delay: 2s;
+        }
+
+        .bubble:nth-child(9) {
+            width: 15px;
+            height: 15px;
+            left: 70%;
+            animation-duration: 5s;
+            animation-delay: 1s;
+        }
+
+        .bubble:nth-child(10) {
+            width: 90px;
+            height: 90px;
+            left: 25%;
+            animation-duration: 10s;
+            animation-delay: 4s;
+        }
+
+        @keyframes rise {
+            0% {
+                bottom: -100px;
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translate(100px);
+            }
+
+            100% {
+                bottom: 1080px;
+                transform: translateX(-200px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button id="prevBtn">Previous</button>
+    <button id="nextBtn">Next</button>
+    <div id="flipbook" style="margin: auto; margin-top: 50vh; transform: translatey(-50%);">
+        <div class="hard"><img src="capaLivro.png" style="width: 100%;"></div>
+        <div class="hard"><img src="receitas_ok-02.png" style="width: 100%;"></div>
+        <div class="pagina"> <img src="receitas_ok-03.png" style="width: 100%;"> </div>
+        <div class="hard"><img src="receitas_ok-04.png" style="width: 100%;"></div>
+        <div class="pagina"> <img src="receitas_ok-05.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-06.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-07.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-08.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-09.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-10.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-11.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-12.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-13.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-14.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-15.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-16.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-17.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-18.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-19.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-20.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-21.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-22.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-23.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-24.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-25.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-26.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-27.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-28.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-29.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-30.png" style="width: 100%;"> </div>
+        <div class="pagina"> <img src="receitas_ok-31.png" style="width: 100%;"> </div>
+        <div class="hard"><img src="fim.png" style="width: 100%;"></div>
+        <div class="hard"></div>
+    </div>
+
+    <section class="sticky" style="opacity: 0;">
+        <div class="bubbles">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </div>
+    </section>
+</body>
+<script>
+    $("#flipbook").turn({
+        width: 900,
+        height: 636.8,
+        autoCenter: true
+    });
+
+    $("#pageFld").val($("#flipbook").turn("page"));
+
+    $("#flipbook").bind("turned", function (event, page, view) {
+        $("#pageFld").val(page);
+    });
+
+    $("#pageFld").change(function () {
+        $("#flipbook").turn("page", $(this).val());
+    });
+
+    $("#prevBtn").click(function () {
+        $("#flipbook").turn("previous");
+    });
+
+    $("#nextBtn").click(function () {
+        $("#flipbook").turn("next");
+    });
+
+    //Bubles
+    $(document).ready(function(){
+        setInterval(function() {
+            if(document.getElementById('flipbook').children[0].style.display != "none"){
+                document.getElementsByClassName("sticky")[0].style.opacity = "100"
+            }
+        }, 10000);
+        setInterval(function() {
+            if(document.getElementById('flipbook').children[0].style.display == "none"){
+                document.getElementsByClassName("sticky")[0].style.opacity = "0";
+            }
+        }, 1000);
+    });
+
+
+</script>
+
+</html>
+
+<!--
+ .--.          .-. _                  .-..-.                .-.             
+: .--'         : ::_;             _   : `' :                : :             
+: :    .--.  .-' :.-. .--.  .--. :_:   `  '  .--.  ,-.,-. .-' : .--.   .--. 
+: :__ ' .; :' .; :: :' .; :' .; : _   .'  `.' .; ; : ,. :' .; :' .; ; ' .; :
+`.__.'`.__.'`.__.':_;`._. ;`.__.':_;  :_;:_;`.__,_;:_;:_;`.__.'`.__,_;`.__.'
+                      .-. :                                                 
+                      `._.'       
+-->
